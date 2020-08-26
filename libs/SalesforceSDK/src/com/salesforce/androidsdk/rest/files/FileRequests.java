@@ -135,6 +135,18 @@ public class FileRequests extends ApiRequests {
     }
 
     /**
+     * CUSTOM BUILT METHOD!
+     * This method will take the entire URI id (the entire path if that is what is supplied) of the file
+     * and it will return a new RestRequest that is only the path passed in to this method.
+     * @param sfdcId The Id of the file.
+     * @return A new RestRequest that can be used to fetch this data.
+     */
+    public static RestRequest fileContents(String sfdcId) {
+        validateSfdcId(sfdcId);
+        return make(noBase(sfdcId));
+    }
+
+    /**
      * Builds a request that can fetch the actual binary file contents of this
      * particular file.
      * 

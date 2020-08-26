@@ -45,6 +45,16 @@ class ApiRequests {
         return new RestRequest(RestMethod.GET, builder.toString(), HTTP_HEADERS);
     }
 
+
+    /**
+     * CUSTOM METHOD! This method is expecting a full path to a resource. ie: /attachments/id-of-attachment/etc.
+     * It will use the entire path to generate a RestRequest that will fetch data from the passed path.
+     * @param fullPath entire path to be appended to domain call (/attachments/id-of-file/whatever)
+     * @return ConnectUriBuilder object.
+     */
+    protected static ConnectUriBuilder noBase(String fullPath) {
+        return new ConnectUriBuilder(fullPath);
+    }
     protected static ConnectUriBuilder base(String firstPathSegment) {
         return new ConnectUriBuilder().appendPath(firstPathSegment);
     }

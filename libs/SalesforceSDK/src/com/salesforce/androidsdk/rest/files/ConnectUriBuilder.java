@@ -54,6 +54,16 @@ public class ConnectUriBuilder {
 
     private final Uri.Builder builder;
 
+    /**
+     * CUSTOM CONSTRUCTOR! This method will use the full path passed in here to build a URI.
+     * It will not build a base path. The full path passed in here will be appended to
+     * the domain request.
+     * @param fullPath full path of the resource being requested.
+     */
+    public ConnectUriBuilder(String fullPath) {
+        this(Uri.parse(fullPath).buildUpon());
+    }
+
     public ConnectUriBuilder appendPath(String pathSegment) {
         builder.appendEncodedPath(pathSegment);
         return this;
