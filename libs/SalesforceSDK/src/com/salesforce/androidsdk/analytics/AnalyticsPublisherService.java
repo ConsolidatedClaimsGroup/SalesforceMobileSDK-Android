@@ -57,12 +57,13 @@ public class AnalyticsPublisherService extends JobIntentService {
 
     @Override
     protected void onHandleWork(Intent intent) {
-        if (intent != null) {
-            final String action = intent.getAction();
-            if (ACTION_PUBLISH.equals(action)) {
-                handleActionPublish();
-            }
-        }
+        // THIS WAS CAUSING CRASHES IN OUR PROD APP.
+//        if (intent != null) {
+//            final String action = intent.getAction();
+//            if (ACTION_PUBLISH.equals(action)) {
+//                handleActionPublish();
+//            }
+//        }
     }
 
     /**
